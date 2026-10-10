@@ -1,0 +1,21 @@
+{
+  "name": "ghost-test-404",
+  "version": "1.0.0-rc.7",
+  "private": true,
+  "description": "Laboratorio QA local: verificación HTTP HEAD, controles, recorridos, visual, informes y Release Gate",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/*.test.js",
+    "test:ci": "node scripts/ci.js",
+    "install:browser": "npx playwright install chromium",
+    "test:quality": "node --test tests/*.test.js",
+    "test:browser": "node scripts/ui-smoke.js"
+  },
+  "dependencies": {
+    "playwright": "^1.56.1",
+    "pngjs": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
