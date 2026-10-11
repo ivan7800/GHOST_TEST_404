@@ -4,7 +4,7 @@
 
 Laboratorio local de QA para aplicaciones web: comprueba controles, errores de navegador y red, recorridos funcionales, capturas visuales e informes con una puerta de calidad.
 
-> **Estado:** RC7, candidata a release. La etiqueta STABLE requiere que la nueva ejecución de GitHub Actions termine correctamente y que se valide la instalación en Windows. El repositorio todavía no incluye un `package-lock.json`, por lo que la instalación no es totalmente reproducible.
+> **Estado:** RC7, candidata a release. GitHub Actions pasó en Ubuntu (24 pruebas unitarias/servidor, recorrido funcional y smoke test del panel). Aún falta validar la instalación en Windows. El repositorio no incluye `package-lock.json`, por lo que la instalación no es totalmente reproducible.
 
 ## Qué incluye
 
