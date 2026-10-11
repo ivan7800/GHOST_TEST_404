@@ -11,7 +11,7 @@ function validateTarget(input) {
   if (!['http:', 'https:'].includes(url.protocol)) throw new Error('Solo se permiten URLs HTTP/HTTPS.');
   if (url.username || url.password) throw new Error('No se permiten credenciales en la URL.');
   // Phase 1: tests are local only. Public and remote URLs will require explicit opt-in in a later phase.
-  if (!['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)) throw new Error('En fase 1 solo se prueban sitios locales (localhost o 127.0.0.1).');
+  if (!['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)) throw new Error('Solo se permiten sitios locales (localhost o 127.0.0.1).');
   return url.toString();
 }
 module.exports = { PORT, HOST, ROOT, MAX_BODY, validateTarget };
