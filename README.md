@@ -4,7 +4,7 @@
 
 Laboratorio local de QA para aplicaciones web: comprueba controles, errores de navegador y red, recorridos funcionales, capturas visuales e informes con una puerta de calidad.
 
-> **Estado:** RC7, candidata a release. GitHub Actions pasó en Ubuntu (24 pruebas unitarias/servidor, recorrido funcional y smoke test del panel). Aún falta validar la instalación en Windows. El repositorio no incluye `package-lock.json`, por lo que la instalación no es totalmente reproducible.
+> **Estado:** RC7, candidata a release. GitHub Actions pasó en Ubuntu (24 pruebas unitarias/servidor, recorrido funcional y smoke test del panel). Aún falta validar la instalación en Windows. El archivo `package-lock.json` fija las dependencias; CI y el instalador usan `npm ci`.
 
 ## Qué incluye
 
@@ -32,7 +32,7 @@ Laboratorio local de QA para aplicaciones web: comprueba controles, errores de n
 También puedes ejecutarlo desde una terminal:
 
 ```bash
-npm install
+npm ci
 npx playwright install chromium
 npm start
 ```
@@ -62,7 +62,7 @@ La CI también ejecuta estos tres comandos en Ubuntu. Consulta la pestaña **Act
 
 ## Límites conocidos
 
-- No hay `package-lock.json`; hasta que se genere y se confirme, npm puede resolver versiones distintas entre instalaciones. La CI instala dependencias con `npm install`.
+- `npm ci` requiere conexión al registro npm para descargar los paquetes fijados en `package-lock.json`.
 - La prueba visual compara capturas de Chromium y no sustituye pruebas en dispositivos físicos ni en otros navegadores.
 - Un resultado satisfactorio de CI comprueba el código en Ubuntu; la instalación y el uso en Windows deben validarse en Windows.
 
