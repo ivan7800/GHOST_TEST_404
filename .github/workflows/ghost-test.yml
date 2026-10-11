@@ -26,14 +26,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
+      - name: Install dependencies on Linux
+        if: runner.os == 'Linux'
         run: npm ci
+      - name: Run Windows installer
+        if: runner.os == 'Windows'
+        run: cmd /c "echo. | INSTALAR_WINDOWS.bat"
       - name: Install Chromium on Linux
         if: runner.os == 'Linux'
         run: npx playwright install --with-deps chromium
-      - name: Install Chromium on Windows
-        if: runner.os == 'Windows'
-        run: npx playwright install chromium
       - name: Unit and server tests
         run: npm test
       - name: Functional fixture journey
