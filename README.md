@@ -4,7 +4,7 @@
 
 Laboratorio local de QA para aplicaciones web: comprueba controles, errores de navegador y red, recorridos funcionales, capturas visuales e informes con una puerta de calidad.
 
-> **Estado:** RC7, candidata a release. GitHub Actions pasó en Ubuntu (24 pruebas unitarias/servidor, recorrido funcional y smoke test del panel). Aún falta validar la instalación en Windows. El archivo `package-lock.json` fija las dependencias; CI y el instalador usan `npm ci`.
+> **Estado:** RC7, candidata a release. GitHub Actions valida la suite en Ubuntu y Windows (24 pruebas unitarias/servidor, recorrido funcional y smoke test del panel). El archivo `package-lock.json` fija las dependencias; CI y el instalador usan `npm ci`.
 
 ## Qué incluye
 
@@ -49,7 +49,7 @@ npm run test:browser
 - `npm run test:ci`: ejecuta un recorrido funcional contra una aplicación de fixture local y genera informes.
 - `npm run test:browser`: abre el panel real con Chromium y comprueba salud, temas, validación, historial, consola y varios tamaños de pantalla.
 
-La CI también ejecuta estos tres comandos en Ubuntu. Consulta la pestaña **Actions** para ver el resultado de cada commit.
+La CI ejecuta estos tres comandos en Ubuntu y Windows. Consulta la pestaña **Actions** para ver el resultado de cada commit.
 
 ## Uso seguro
 
@@ -64,7 +64,7 @@ La CI también ejecuta estos tres comandos en Ubuntu. Consulta la pestaña **Act
 
 - `npm ci` requiere conexión al registro npm para descargar los paquetes fijados en `package-lock.json`.
 - La prueba visual compara capturas de Chromium y no sustituye pruebas en dispositivos físicos ni en otros navegadores.
-- Un resultado satisfactorio de CI comprueba el código en Ubuntu; la instalación y el uso en Windows deben validarse en Windows.
+- La CI cubre Ubuntu y Windows en runners de GitHub; no sustituye la validación en cada equipo concreto.
 
 ## Licencia
 
