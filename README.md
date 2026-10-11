@@ -53,7 +53,7 @@ La CI ejecuta estos tres comandos en Ubuntu y Windows. Consulta la pestaña **Ac
 
 ## Uso seguro
 
-- El motor limita los destinos a `localhost` y `127.0.0.1`; no está pensado para probar sitios públicos o de producción.
+- El motor limita los destinos a `localhost`, `127.0.0.1` y `::1`; no está pensado para probar sitios públicos o de producción.
 - Usa aplicaciones y cuentas con datos desechables. Los recorridos y clics pueden modificar datos.
 - Guardar una baseline visual sustituye la referencia anterior. La comparación puede señalar diferencias por contenido dinámico, fechas o carga asíncrona.
 - Las capturas, el historial y los informes pueden contener URLs, datos o errores de la aplicación probada. Revísalos antes de compartirlos.
@@ -68,7 +68,7 @@ La CI ejecuta estos tres comandos en Ubuntu y Windows. Consulta la pestaña **Ac
 
 ## Licencia
 
-Aún no se ha declarado una licencia. Todos los derechos quedan reservados por defecto; solicita autorización antes de reutilizar o distribuir este código.
+Este proyecto está publicado bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para ver los términos.
 
 ## Estructura
 
@@ -77,4 +77,3 @@ Aún no se ha declarado una licencia. Todos los derechos quedan reservados por d
 - `tests/`: pruebas unitarias y de contratos.
 - `scripts/`: ejecución de la fixture CI y smoke test del panel.
 - `.github/workflows/ghost-test.yml`: pipeline de GitHub Actions.
-
