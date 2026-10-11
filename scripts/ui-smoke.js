@@ -26,9 +26,15 @@ async function main() {
     await page.locator('#run').click();
     assert.equal(await page.locator('#target').evaluate(el=>el.validity.valid),false);
     await page.locator('#target').fill(base);
+    const historyBeforeCancel = await page.locator('#history-count').textContent();
     page.once('dialog',dialog=>dialog.dismiss());
     await page.locator('#clear-history').click();
-    assert.equal(await page.locator('#history-count').textContent(),'0');
+    await page.waitForTimeout(100);
+    assert.equal(
+      await page.locator('#history-count').textContent(),
+      historyBeforeCancel,
+      'Cancelar el borrado debe conservar el historial existente'
+    );
     assert.deepEqual(errors,[],'Errores JS en dashboard');
     for (const width of [390,768,1440]) {
       await page.setViewportSize({width,height:900});
