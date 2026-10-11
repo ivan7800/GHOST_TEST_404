@@ -1,0 +1,9 @@
+node_modules/
+data/
+.ghost-visual/
+reports/
+playwright-report/
+test-results/
+npm-debug.log*
+.DS_Store
+Thumbs.db
